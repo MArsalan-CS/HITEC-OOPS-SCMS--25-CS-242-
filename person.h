@@ -8,4 +8,14 @@ protected:
     string cnic;
     int age;
     string contact;
-
+public:
+    Person(string n, string c, int a, string con)
+    {
+        name = n;
+        cnic = c;
+        age = a;
+        contact = con;
+    }
+    virtual void displayInfo() const = 0;
+    virtual ~Person() {}
+};
