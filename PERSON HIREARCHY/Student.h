@@ -1,3 +1,6 @@
+#ifndef STUDENT_H
+#define STUDENT_H
+
 #include "Person.h"
 class Student : public Person
 {
@@ -40,3 +43,5 @@ Student(string n, string c, int a,string con, string roll, int sem, float G )
         cout << "Grade: " << calculateGrade() << endl;
     }
 };
+
+ #endif

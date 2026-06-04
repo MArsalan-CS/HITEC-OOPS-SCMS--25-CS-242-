@@ -1,3 +1,6 @@
+#ifndef FACULTY_H
+#define FACULTY_H
+
 #include "Person.h"
 class faculty : public Person
 {
@@ -25,3 +28,4 @@ class faculty : public Person
         cout << "Designation: " << Designation << endl;
     }
 };
+ #endif
