@@ -11,7 +11,7 @@ int main(){
         2,
         3.4);
 
-    faculty f1(
+    Faculty f1(
         "Ali",
         "6288-67826-62776",
         35,

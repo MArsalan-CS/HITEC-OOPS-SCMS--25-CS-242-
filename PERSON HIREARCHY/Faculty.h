@@ -2,7 +2,7 @@
 #define FACULTY_H
 
 #include "Person.h"
-class faculty : public Person
+class Faculty : public Person
 {
     private:
     string employeeID;
@@ -10,7 +10,7 @@ class faculty : public Person
     string Designation;
     string Assignedcourses[5];
     public:
-    faculty(string n, string c, int a, string con, string emp, string dep, string des) : Person(n, c, a, con)
+    Faculty(string n, string c, int a, string con, string emp, string dep, string des) : Person(n, c, a, con)
     {
         employeeID = emp;
         Department = dep;

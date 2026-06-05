@@ -3,7 +3,7 @@
 
 #include <iostream>
 #include <string>
-#include <Faculty.h>
+#include "Faculty.h"
 
 using namespace std;
 class Course{
@@ -11,12 +11,12 @@ class Course{
     string coursecode;
     string coursename;
     int credithours;
-    faculty*instructor;
+    Faculty*instructor;
     int maxcapacity;
     int enrolledcount;
 
     public:
-    Course(string code, string name, int credit, faculty*inst, int maxcap )
+    Course(string code, string name, int credit, Faculty*inst, int maxcap )
     {
         coursecode = code;
         coursename = name;
