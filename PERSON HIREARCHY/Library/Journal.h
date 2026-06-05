@@ -1,4 +1,4 @@
-#ifnedef JOURNAL_H
+#ifndef JOURNAL_H
 #define JOURNAL_H
 #include "Libraryitem.h"
 class Journal : public Libraryitem
@@ -21,5 +21,15 @@ class Journal : public Libraryitem
 
         cout<<"Item ID: "<<ItemId<<endl;
         cout<< "Title: "<<Title<<endl;
+        cout<< "Author: "<<Author<<endl;
+        cout<<"Publication Year: "<<PublicationYear<<endl;
+        cout<< "ISSN: "<<ISSN<<endl;
+        cout<< "Volume: "<<Volume<<endl;
+        cout<< "Issue Number: "<<IssueNumber<<endl;
     }
-}
+    string getISSN() const
+    {
+        return ISSN;
+    }
+};
+ #endif

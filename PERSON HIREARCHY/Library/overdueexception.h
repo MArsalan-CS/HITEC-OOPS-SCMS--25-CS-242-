@@ -13,5 +13,14 @@ class Overdueexception
         {
             fine = f;
         }
-        
-}
+        void showError() const
+        {
+            cout<< "Overdue Item! "<<endl;
+            cout<< "Fine Amount: Rs. "<<fine<<endl;
+        }
+        double getfine() const
+        {
+            return fine;
+        }
+};
+  #endif
