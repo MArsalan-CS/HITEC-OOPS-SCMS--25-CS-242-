@@ -7,12 +7,54 @@
 
 using namespace std;
 class Course{
+    private:
     string coursecode;
     string coursename;
     int credithours;
     faculty*instructor;
     int maxcapacity;
     int enrolledcount;
-}
 
-#endif
+    public:
+    Course(string code, string name, int credit, faculty*inst, int maxcap )
+    {
+        coursecode = code;
+        coursename = name;
+        credithours = credit;
+        instructor = inst;
+        maxcapacity = maxcap;
+        enrolledcount = 0;
+
+    }
+    string getcoursecode() const
+    {
+        return coursecode;
+    }
+    void setcoursename(string name)
+    {
+        coursename = name;
+    }
+    bool operator ==(const Course& other)
+    {
+        return coursecode == other.coursecode;
+    }
+    //friend for private access
+    friend ostream& operator<<(ostream& out, const Course& c)
+    {
+        out << "\nCourse Code: " << c.coursecode << endl;
+        out << "Course name: " << c.coursename << endl;
+        out << "Credit hours: " << c.credithours << endl;
+         out << "Capacity: " << c.enrolledcount << "/" << c.maxcapacity << endl;
+         return out;
+    }
+    void enrollstudent()
+    {
+        if(enrolledcount >=maxcapacity)
+        {
+            throw 1;
+        }
+        enrolledcount++;
+    }
+
+};
+   #endif
