@@ -38,9 +38,41 @@ class library
         {
             if(catalog[i]->getTitle() == searchtitle)
             {
-                cout<< 
+                cout<< "\nItem Found!\n";
+                catalog[i]->displayinfo();
+                found = true;
             }
         }
+        if(!found)
+        {
+            cout<< "Item Not Found! "<<endl;
+        }
+    }
+    void savecatalog(){
+        ofstream file("catalog.txt");
+        if(!file)
+        {
+            cout<< "File Error!"<<endl;
+            return;
+        }
+        for(int i=0; i<itemcount;i++)
+        {
+            file<<catalog[i]->getitemid()<<" "<<catalog[i]->getTitle()<<endl;
+        }
+        file.close();
+        cout<< "catalog saved!"<<endl;
+    }
+    void loadcatalog()
+    {
+        ifstream file("catalog.txt");
+        string line;
+
+        cout<< "\ncatalog Data:\n";
+        while(getline(file,line))
+        {
+            cout<<line<<endl;
+        }
+        file.close();
     }
 };
  #endif
