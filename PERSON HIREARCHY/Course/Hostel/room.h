@@ -36,17 +36,41 @@ class Room
             occupants[i] =nullptr;
         }
     }
-    void addoccupant(Student* s)
+     int getCapacity()
     {
-        if(occupantCount<3)
+        if(type == "Single")
+            return 1;
+
+        if(type == "Double")
+            return 2;
+
+        return 3;
+    }
+    void addOccupant(Student* s)
+    {
+        if(occupantCount<getCapacity())
         {
             occupants[occupantCount] = s;
             occupantCount++;
+            cout<< "Student Added Successfully!"<<endl;
         }
-        else{
+         else{
             cout<< "Room Full!"<<endl;
         }
+      }
+      void removeOccupant()
+        {
+            if(occupantCount > 0)
+      {
+           occupantCount--;
+         occupants[occupantCount] = nullptr;
+      cout<< "Student Removed Successfully!"<<endl;
     }
+    else
+    {
+        cout<<"Room Already Empty!"<<endl;
+    }
+}
     void displayRoom()
     {
         cout<< "\nRoom Number: "<<roomNumber<<endl;
