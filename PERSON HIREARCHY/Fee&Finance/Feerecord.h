@@ -47,5 +47,18 @@ class FeeRecord
             }
             return*this;
         }
-    };
+
+        FeeRecord& operator-=(double payment)
+        {
+            TotalPaid+= payment;
+            Balance-= payment;
+            return *this;
+        }
+        void display() const
+        {
+            cout<< "\nStudent: "<<StudentRef<<endl;
+            cout<< "Balance: "<<Balance<<endl;
+            cout<< "TotalPaid: "<<TotalPaid<<endl;
+        }
+};
     #endif
