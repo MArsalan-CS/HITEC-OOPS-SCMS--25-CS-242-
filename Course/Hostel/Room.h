@@ -2,7 +2,7 @@
 #define ROOM_H
 #include<iostream>
 #include<string>
-#include "Student.h"
+#include "../../PERSON HIREARCHY/Student.h"
 using namespace std;
 
 class Room
