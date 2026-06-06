@@ -54,6 +54,9 @@ class FeeRecord
             Balance-= payment;
             return *this;
         }
+        string getStudentRef() const{
+            return StudentRef;
+        }
         void display() const
         {
             cout<< "\nStudent: "<<StudentRef<<endl;

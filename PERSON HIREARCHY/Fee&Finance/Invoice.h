@@ -36,5 +36,19 @@ class Invoice
     {
         cout<< "\n==== Invoice ===="<<endl;
         cout<< "Invoice Id: "<<invoiceid<<endl;
+        cout<< "Student: "<<feeRecord->getStudentRef()<<endl;
+        cout<< "Date: "<<date<<endl;
+        cout<<"\nItems: "<<endl;
+        for(int i=0;i<itemcount;i++)
+        {
+            cout<<items[i]<<endl;
+        }
+        cout<< "Total Amount: "<<totalamount<<endl;
+    }
+    ~Invoice()
+    {
+        delete[] items;
     }
 };
+int Invoice::invoicecounter = 0;
+#endif
