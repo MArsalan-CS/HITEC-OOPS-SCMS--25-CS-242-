@@ -13,7 +13,16 @@ int main()
 {
     system("color 0B");
     Student* students[100];
-    int studentcount = 0;
+    Faculty* faculties[100];
+    Book* books[100];
+    Course* courses[100];
+    FeeRecord* fees[100];
+
+    int studentCount = 0;
+    int facultyCount = 0;
+    int bookCount = 0;
+    int courseCount = 0;
+    int feeCount = 0;
     int choice;
     do{
         cout<< "\n===== SMART CAMPUS MANAGEMENT =====\n";
@@ -26,7 +35,8 @@ int main()
         cout << "7. Campus Report\n";
         cout << "8. Search Student\n";
         cout << "9. Delete Student\n";
-        cout<< "10. Exit\n";
+        cout<< "10.Admin Panel\n ";
+        cout<< "11. Exit\n";
 
         cout<< "\nEnter Choice: ";
         cin >> choice;
@@ -51,10 +61,9 @@ int main()
                 cin>> semester;
                 cout<< "Enetr GPA: ";
                 cin>> gpa;
-                students[studentcount]=new Student(name,cnic,age,contact,roll,semester,gpa);
-                students[studentcount]->displayInfo();
-                studentcount++;
-                            break;
+                students[studentCount]->displayInfo();
+                studentCount++;
+                 break;
             }
             case 2:
             {
@@ -73,10 +82,10 @@ int main()
                 getline(cin, empID);
                   cout << "Enter Designation: ";
             getline(cin, designation);
-            Faculty f(
-                name,cnic,age,contact,empID, dept,designation
-            );
-            f.displayInfo();
+        faculties[facultyCount] = new Faculty(name,cnic,age,contact,
+            empID,dept,designation);
+            faculties[facultyCount]->displayInfo();
+            facultyCount++;
             break;
         }
         case 3:
@@ -93,11 +102,7 @@ int main()
             cin >> maxcap;
             Faculty* inst = nullptr;
             Course c(
-                code,
-                cname,
-                credit,
-                inst,
-                maxcap
+                code,cname,credit,inst,maxcap
             );
             cout << c;
             break;
@@ -124,11 +129,9 @@ int main()
             cout<< "Enter Copies: ";
             cin>> copies;
 
-             Book b(
-                id,title,author,year,isbn,genre,copies
-            );
-            b.displayinfo();
-            b.checkout();
+            books[bookCount]= new Book (id,title,author,year,isbn,genre,copies);
+            books[bookCount]->displayinfo();
+            bookCount++;
             break;
         }
         case 5:
@@ -184,7 +187,7 @@ int main()
             cout<< "Enter Roll number: ";
             getline(cin,searchRoll);
             bool found =false;
-            for(int i=0;i<studentcount;i++){
+            for(int i=0;i<studentCount;i++){
                 if(students[i]->getRollNo() == searchRoll){
                     students[i]->displayInfo();
                     found=true;
@@ -202,18 +205,22 @@ int main()
             cout<< "Enter Roll Number To Delete: ";
             getline(cin,roll);
             bool found=false;
-            for(int i=0;i<studentcount;i++){
+            for(int i=0;i<studentCount;i++){
                 if(students[i]->getRollNo()==roll){
                     delete students[i];
-                    for(int j=i;j<studentcount-1;j++){
+                    for(int j=i;j<studentCount-1;j++){
                         students[j]= students[j+1];
                     }
-                    studentcount--;
+                    studentCount--;
 
             cout << "Student Deleted Successfully\n";
 
             found = true;
             break;
+    }
+    case 10:
+    {
+        string user, pass;
     }
 }
 if(!found)
@@ -222,7 +229,7 @@ if(!found)
     }
     break;
 }
-    case 10:
+    case 11:
     {
         cout<< "\nProgram Closed\n";
         break;
