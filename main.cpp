@@ -72,13 +72,7 @@ int main()
                   cout << "Enter Designation: ";
             getline(cin, designation);
             Faculty f(
-                name,
-                cnic,
-                age,
-                contact,
-                empID,
-                dept,
-                designation
+                name,cnic,age,contact,empID, dept,designation
             );
             f.displayInfo();
             break;
@@ -185,10 +179,60 @@ int main()
         case 8:
         {
             string searchRoll;
-            cout<< "Enter Roll"
+            cout<< "Enter Roll number: ";
+            getline(cin,searchRoll);
+            bool found =false;
+            for(int i=0;i<studentcount;i++){
+                if(students[i]->getRollNo() == searchRoll){
+                    students[i]->displayInfo();
+                    found=true;
+                    break;
+                }
+            }
+            if(!found){
+                cout<< "Student Not Found\n";
+            }
+            break;
         }
-    }
-        }
-}
-    
+        case 9:
+        {
+            string roll;
+            cout<< "Enter Roll Number To Delete: ";
+            getline(cin,roll);
+            bool found=false;
+            for(int i=0;i<studentcount;i++){
+                if(students[i]->getRollNo()==roll){
+                    delete students[i];
+                    for(int j=i;j<studentcount-1;j++){
+                        students[j]= students[j+1];
+                    }
+                    studentcount--;
 
+            cout << "Student Deleted Successfully\n";
+
+            found = true;
+            break;
+    }
+}
+if(!found)
+    {
+        cout << "Student Not Found\n";
+    }
+    break;
+}
+    case 10:
+    {
+        cout<< "\nProgram Closed\n";
+        break;
+    }
+    default:
+    {
+        cout<< "\nInvalid Choice\n";
+        break;
+    }
+    
+    }
+}
+    while(choice!=0);
+    return 0;
+}
