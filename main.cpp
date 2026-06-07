@@ -71,7 +71,6 @@ int main()
                 getline(cin, empID);
                   cout << "Enter Designation: ";
             getline(cin, designation);
-
             Faculty f(
                 name,
                 cnic,
@@ -81,7 +80,6 @@ int main()
                 dept,
                 designation
             );
-
             f.displayInfo();
             break;
         }
@@ -89,21 +87,15 @@ int main()
         {
              string code, cname;
             int credit, maxcap;
-
             cout << "Enter Course Code: ";
             getline(cin, code);
-
             cout << "Enter Course Name: ";
             getline(cin, cname);
-
             cout << "Enter Credit Hours: ";
             cin >> credit;
-
             cout << "Enter Max Capacity: ";
             cin >> maxcap;
-
             Faculty* inst = nullptr;
-
             Course c(
                 code,
                 cname,
@@ -111,15 +103,90 @@ int main()
                 inst,
                 maxcap
             );
-
             cout << c;
             break;
         }
+
         case 4:
         {
-            string id,
-        }
+            string id, title, author;
+            string isbn,genre;
+            int year, copies;
+            cout<< "Enter Book ID: ";
+            getline(cin, id);
+            cout<< "Enter Title: ";
+            getline(cin,title);
+            cout<< "Enter Author: ";
+            getline(cin,author);
+            cout<< "Enter Publication Year: ";
+            cin>>year;
+            cin.ignore();
+            cout<< "Enter ISBN: ";
+            getline(cin,isbn);
+            cout<< "Enter Genre: ";
+            getline(cin,genre);
+            cout<< "Enter Copies: ";
+            cin>> copies;
 
+             Book b(
+                id,title,author,year,isbn,genre,copies
+            );
+            b.displayinfo();
+            b.checkout();
+            break;
+        }
+        case 5:
+        {
+            string ref;
+            double semFee, hostFee, fine;
+            cout<< "Enter Student Reference: ";
+            getline(cin, ref);
+            cout<< "Enter Semester Fee: ";
+            cin>> semFee;
+            cout<< "Enter Hostel Fee: ";
+            cin>> hostFee;
+            cout<< "Enter Library Fine: ";
+            cin>> fine;
+            FeeRecord Fee(ref,semFee,hostFee,fine);
+            Fee.display();
+            break;
+        }
+        case 6:
+        {
+            string blockName;
+            cout<< "Enter Block Name: ";
+            getline(cin, blockName);
+            HostelBlock block(blockName);
+            for(int i=0;i<3;i++)
+            {
+                int roomNo,floor;
+                string type;
+                cout<< "\nRoom "<< i+1<<endl;
+                cout<< "Room Number: ";
+                cin>> roomNo;
+                cin.ignore();
+                cout<< "Type (Single/Double/Triple): ";
+                getline(cin, type);
+                cout<< "Floor: ";
+                cin>> floor;
+                cin.ignore();
+                Room r(roomNo,type,floor);
+                block.setRoom(i,r);
+            }
+            block.displayRooms();
+            break;
+        }
+        case 7:
+        {
+            Reports::campusReport();
+            Reports::generatePDFStyleReport();
+            break;
+        }
+        case 8:
+        {
+            string searchRoll;
+            cout<< "Enter Roll"
+        }
     }
         }
 }
