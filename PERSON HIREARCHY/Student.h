@@ -17,7 +17,10 @@ Student(string n, string c, int a,string con, string roll, int sem, float G )
         semester = sem;
         GPA = G;
     }
-
+    string getRollNo() const
+{
+    return rollNo;
+}
     char calculateGrade() const
     {
         if(GPA >= 3.7)
