@@ -1,4 +1,5 @@
 #include<iostream>
+#include<cstdlib>
 #include "PERSON HIREARCHY/Student.h"
 #include "PERSON HIREARCHY/Faculty.h"
 #include "Course/Course.h"
@@ -10,6 +11,7 @@
 using namespace std;
 int main()
 {
+    system("color 0B");
     Student* students[100];
     int studentcount = 0;
     int choice;
@@ -230,7 +232,7 @@ if(!found)
         cout<< "\nInvalid Choice\n";
         break;
     }
-    
+
     }
 }
     while(choice!=0);
