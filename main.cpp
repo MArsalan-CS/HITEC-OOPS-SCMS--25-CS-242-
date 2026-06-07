@@ -63,6 +63,7 @@ int main()
                 cin>> semester;
                 cout<< "Enetr GPA: ";
                 cin>> gpa;
+                cin.ignore();
                 students[studentCount]=new Student(name, cnic, age, contact, roll, semester, gpa);
                 students[studentCount]->displayInfo();
                 studentCount++;
@@ -103,11 +104,11 @@ int main()
             cin >> credit;
             cout << "Enter Max Capacity: ";
             cin >> maxcap;
+            cin.ignore();
             Faculty* inst = nullptr;
-            Course c(
-                code,cname,credit,inst,maxcap
-            );
-            cout << c;
+            courses[courseCount] = new Course (code,cname,credit,inst,maxcap);
+            cout << *courses[courseCount];
+            courseCount++;
             break;
         }
 
@@ -131,6 +132,7 @@ int main()
             getline(cin,genre);
             cout<< "Enter Copies: ";
             cin>> copies;
+            cin.ignore();
 
             books[bookCount]= new Book (id,title,author,year,isbn,genre,copies);
             books[bookCount]->displayinfo();
@@ -149,8 +151,10 @@ int main()
             cin>> hostFee;
             cout<< "Enter Library Fine: ";
             cin>> fine;
-            FeeRecord Fee(ref,semFee,hostFee,fine);
-            Fee.display();
+            cin.ignore();
+            fees[feeCount] = new FeeRecord(ref,semFee,hostFee,fine);
+            fees[feeCount]->display();
+            feeCount++;
             break;
         }
         case 6:
@@ -243,6 +247,20 @@ int main()
         for(int i=0; i<facultyCount; i++)
         {
             faculties[i]->displayInfo();
+            cout << "------------------\n";
+        }
+        cout << "\n===== ALL COURSES =====\n";
+
+        for(int i=0;i<courseCount;i++)
+        {
+            cout << *courses[i];
+            cout << "------------------\n";
+        }
+        cout << "\n===== ALL FEE RECORDS =====\n";
+
+        for(int i=0;i<feeCount;i++)
+        {
+            fees[i]->display();
             cout << "------------------\n";
         }
         cout << "\n===== ALL BOOKS =====\n";
