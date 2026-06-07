@@ -52,18 +52,21 @@ int main()
                 getline(cin, name);
                 cout<< "Enter CNIC: ";
                 getline(cin,cnic);
+                cout<< "Enter Contact: ";
+                getline(cin, contact);
+                cout<< "Enter Roll: ";
+                getline(cin,roll);
                 cout<< "Enter Age: ";
                 cin>> age;
                 cin.ignore();
-                cout<<"Enter Contact: ";
-                getline(cin, roll);
                 cout<< "Enter Semester: ";
                 cin>> semester;
                 cout<< "Enetr GPA: ";
                 cin>> gpa;
+                students[studentCount]=new Student(name, cnic, age, contact, roll, semester, gpa);
                 students[studentCount]->displayInfo();
                 studentCount++;
-                 break;
+                break;
             }
             case 2:
             {
@@ -212,23 +215,50 @@ int main()
                         students[j]= students[j+1];
                     }
                     studentCount--;
-
             cout << "Student Deleted Successfully\n";
-
             found = true;
             break;
     }
+}
+        if(!found){
+                cout<< "Student Not Found\n";
+            }
+            break;
+        }
     case 10:
     {
         string user, pass;
+        cout<< "Username: ";
+        getline(cin,user);
+        cout<< "Password: ";
+        getline(cin,pass);
+        if(user == "admin" && pass == "4321"){
+            cout<<"\n===== ALL STUDENTS =====\n";
+             for(int i=0; i<studentCount; i++)
+        {
+            students[i]->displayInfo();
+            cout << "------------------\n";
+        }
+        cout << "\n===== ALL FACULTY =====\n";
+        for(int i=0; i<facultyCount; i++)
+        {
+            faculties[i]->displayInfo();
+            cout << "------------------\n";
+        }
+        cout << "\n===== ALL BOOKS =====\n";
+        for(int i=0; i<bookCount; i++)
+        {
+            books[i]->displayinfo();
+            cout << "------------------\n";
+        }
     }
-}
-if(!found)
+    else
     {
-        cout << "Student Not Found\n";
+        cout<< "Access Denied!\n";
     }
     break;
-}
+        
+    }
     case 11:
     {
         cout<< "\nProgram Closed\n";
@@ -239,9 +269,8 @@ if(!found)
         cout<< "\nInvalid Choice\n";
         break;
     }
-
-    }
 }
-    while(choice!=0);
+    }
+    while(choice!=11);
     return 0;
 }
