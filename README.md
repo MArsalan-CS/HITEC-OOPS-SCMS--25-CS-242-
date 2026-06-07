@@ -42,8 +42,8 @@ File Handling – Reading and writing records using fstream.
 Association – Invoice associated with FeeRecord.
 
 ---- How to Compile & Run ----
-g++ -std=c++17 src/**/*.cpp src/main.cpp -o scms
-./scms
+g++  src/main.cpp -o scms
+or compile by presssing the run button on screen in vs
 For Windows (MinGW):
 g++ *.cpp -o scms
 scms.exe
