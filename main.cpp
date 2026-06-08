@@ -3,9 +3,9 @@
 #include "PERSON HIREARCHY/Student.h"
 #include "PERSON HIREARCHY/Faculty.h"
 #include "Course/Course.h"
-#include "PERSON HIREARCHY/Library/Book.h"
+#include "Library/Book.h"
 #include "Finance/Feerecord.h"
-#include "PERSON HIREARCHY\Hostel\hostelblock.h"
+#include "Hostel\hostelblock.h"
 #include "utilities/Reports.h"
 
 using namespace std;
