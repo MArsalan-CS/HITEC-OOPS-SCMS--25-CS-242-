@@ -5,7 +5,7 @@
 #include "Course/Course.h"
 #include "Library/Book.h"
 #include "Finance/Feerecord.h"
-#include "Hostel\hostelblock.h"
+#include "PERSON HIREARCHY/Hostel\hostelblock.h" 
 #include "utilities/Reports.h"
 
 using namespace std;
