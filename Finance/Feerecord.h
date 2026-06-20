@@ -25,7 +25,15 @@ class FeeRecord
             TotalPaid = 0;
             Balance = SemesterFee+HostelFee+LibraryFine;
         }
-        
+
+        FeeRecord(const FeeRecord&other){
+            StudentRef = other.StudentRef;
+            SemesterFee = other.SemesterFee;
+            HostelFee = other.HostelFee;
+            LibraryFine = other.LibraryFine;
+            TotalPaid = other.TotalPaid;
+            Balance = other.Balance;
+        }
         FeeRecord& operator=(const FeeRecord&other)
         {
             if(this != &other)
