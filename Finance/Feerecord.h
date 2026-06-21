@@ -15,7 +15,6 @@ class FeeRecord
     double Balance;
     
     public:
-    
         FeeRecord(string ref, double semfee, double hostfee, double fine)
         {
             StudentRef = ref;
@@ -25,7 +24,6 @@ class FeeRecord
             TotalPaid = 0;
             Balance = SemesterFee+HostelFee+LibraryFine;
         }
-
         FeeRecord(const FeeRecord&other){
             StudentRef = other.StudentRef;
             SemesterFee = other.SemesterFee;
@@ -47,7 +45,6 @@ class FeeRecord
             }
             return*this;
         }
-
         FeeRecord& operator-=(double payment)
         {
             TotalPaid+= payment;
